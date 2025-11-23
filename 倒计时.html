@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>到下一分钟倒计时</title>
+    <style>body{font-size:20px;text-align:center;margin-top:20px;}</style>
+</head>
+<body>
+    <div id="countdown">还剩0秒刷新</div>
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const nextMinute = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + 1, 0);
+            const diff = nextMinute - now;
+            const secondsLeft = Math.ceil(diff / 1000);
+            document.getElementById("countdown").textContent = `还剩${secondsLeft}秒刷新`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
